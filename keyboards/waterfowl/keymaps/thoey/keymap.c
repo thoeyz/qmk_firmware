@@ -31,7 +31,7 @@ const uint16_t PROGMEM layer5[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM rctl[] = {KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM f2[] = {KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM ESC[] = {KC_V, KC_B, COMBO_END};
-const uint16_t PROGMEM gamei[] = {KC_F, KC_5, COMBO_END};
+const uint16_t PROGMEM gamei[] = {KC_LALT, KC_G, COMBO_END};
 const uint16_t PROGMEM gamef2[] = {KC_C, KC_R, COMBO_END};
 const uint16_t PROGMEM gamectl[] = {KC_X, KC_LALT, COMBO_END};
 
