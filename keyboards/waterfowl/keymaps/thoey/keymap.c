@@ -13,12 +13,12 @@ enum layer_names {
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [0] = { ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN),ENCODER_CCW_CW(KC_UP, KC_DOWN),		ENCODER_CCW_CW(S(KC_MS_WH_DOWN), S(KC_MS_WH_UP)),ENCODER_CCW_CW(KC_RIGHT, KC_LEFT) },
-    [1] = { ENCODER_CCW_CW(KC_LEFT, KC_RIGHT),ENCODER_CCW_CW(KC_F2, KC_I),			ENCODER_CCW_CW(KC_VOLD, KC_VOLU),ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [2] = { ENCODER_CCW_CW(KC_2, KC_1),ENCODER_CCW_CW(C(KC_Z), C(KC_Y)),			ENCODER_CCW_CW(KC_VOLD, KC_VOLU),ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [3] = { ENCODER_CCW_CW(KC_5, KC_6),ENCODER_CCW_CW(KC_7, KC_8),				ENCODER_CCW_CW(KC_VOLD, KC_VOLU),ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [4] = { ENCODER_CCW_CW(KC_5, KC_6),ENCODER_CCW_CW(KC_7, KC_8),				ENCODER_CCW_CW(KC_VOLD, KC_VOLU),ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [5] = { ENCODER_CCW_CW(KC_5, KC_6),ENCODER_CCW_CW(KC_7, KC_8),				ENCODER_CCW_CW(KC_VOLD, KC_VOLU),ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [0] = { ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN),ENCODER_CCW_CW(C(KC_PGUP), C(KC_PGDN)),		ENCODER_CCW_CW(S(KC_MS_WH_DOWN), S(KC_MS_WH_UP)),ENCODER_CCW_CW(KC_RIGHT, KC_LEFT) },
+    [1] = { ENCODER_CCW_CW(KC_LEFT, KC_RIGHT),ENCODER_CCW_CW(KC_F2, KC_I),			                ENCODER_CCW_CW(KC_VOLD, KC_VOLU),ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [2] = { ENCODER_CCW_CW(KC_2, KC_1),ENCODER_CCW_CW(C(KC_Z), C(KC_Y)),			                ENCODER_CCW_CW(KC_VOLD, KC_VOLU),ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [3] = { ENCODER_CCW_CW(KC_5, KC_6),ENCODER_CCW_CW(KC_7, KC_8),				                    ENCODER_CCW_CW(KC_VOLD, KC_VOLU),ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [4] = { ENCODER_CCW_CW(KC_5, KC_6),ENCODER_CCW_CW(KC_7, KC_8),				                    ENCODER_CCW_CW(KC_VOLD, KC_VOLU),ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [5] = { ENCODER_CCW_CW(KC_5, KC_6),ENCODER_CCW_CW(KC_7, KC_8),				                    ENCODER_CCW_CW(KC_VOLD, KC_VOLU),ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
 };
 #endif
 
@@ -34,6 +34,9 @@ const uint16_t PROGMEM ESC[] = {KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM gamei[] = {KC_LALT, KC_G, COMBO_END};
 const uint16_t PROGMEM gamef2[] = {KC_C, KC_R, COMBO_END};
 const uint16_t PROGMEM gamectl[] = {KC_X, KC_LALT, COMBO_END};
+const uint16_t PROGMEM gameb[] = {KC_LALT, KC_E, COMBO_END};
+const uint16_t PROGMEM gameo[] = {KC_ESC, KC_LSFT, COMBO_END};
+const uint16_t PROGMEM gameq[] = {KC_X, KC_3, COMBO_END};
 
 
 combo_t key_combos[] = {
@@ -49,6 +52,9 @@ combo_t key_combos[] = {
     COMBO(gamei, KC_I),
     COMBO(gamef2, KC_F2),
     COMBO(gamectl, KC_LCTL),
+    COMBO(gameb, KC_B),
+    COMBO(gameo, KC_O),
+    COMBO(gameq, KC_Q),
 };
 
 
@@ -79,9 +85,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 [_GAMING] = LAYOUT(
-	LT(2,KC_ESC), KC_LSFT,    KC_W,	    	 KC_C,     KC_R,			          KC_MINS,	    KC_7,	KC_8,	KC_9,	KC_MINS,
+	KC_ESC,       KC_LSFT,    KC_W,	    	 KC_C,     KC_R,			          KC_MINS,	    KC_7,	KC_8,	KC_9,	KC_MINS,
 	KC_E,		  KC_A,	 	  KC_S,	    	 KC_D,     KC_G,			          KC_KP_PLUS,	KC_4,	KC_5,	KC_6,	KC_PAST, 
-	KC_X,		  LT(3,KC_3), LT(4,KC_B),	 KC_F,     KC_5,			          KC_0,	        KC_1,	KC_2,	KC_3,	KC_PSLS,
+	KC_X,		  KC_3,       KC_F2,         KC_F,     KC_5,			          KC_0,	        KC_1,	KC_2,	KC_3,	KC_PSLS,
 			      KC_TRNS, 	  KC_Z,	    	 KC_SPC,   KC_LALT,  CM_TOGG, KC_NUM, KC_U,	        KC_Y,	KC_ENT,	KC_TRNS
 ),
 
@@ -105,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_NO,	 KC_NO,	 	 KC_F2,	      KC_NO,	   KC_F2,		      	           KC_NO,    KC_F7,	     KC_F8,		    KC_F9,		KC_F11,
 	TG(1),	 KC_MS_BTN2, KC_MS_UP,    KC_MS_BTN1,  KC_MS_BTN1,		      	       KC_NO,    KC_MS_BTN1, KC_MS_UP,	    KC_MS_BTN2,	KC_F12,
 	KC_NO,   KC_MS_LEFT, KC_MS_DOWN,  KC_MS_RIGHT, KC_MS_BTN2,		      	       KC_F10,   KC_MS_LEFT, KC_MS_DOWN,	KC_MS_RIGHT,KC_F13,
-		     TG(4),  	 KC_Q,        KC_I, 	   KC_F2,  	    KC_CAPS,  KC_NUM,  KC_ESC,   KC_BSPC,	 LT(2,KC_ENT),	KC_4
+		     TG(4),  	 XXXXXXX,     XXXXXXX, 	   XXXXXXX,  	KC_CAPS,  KC_NUM,  KC_ESC,   KC_BSPC,	 LT(2,KC_ENT),	KC_4
 ),
 
 [_ONEHANDED] =  LAYOUT(
