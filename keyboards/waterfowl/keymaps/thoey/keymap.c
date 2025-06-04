@@ -39,6 +39,8 @@ const uint16_t PROGMEM gameo[] = {KC_ESC, KC_LSFT, COMBO_END};
 const uint16_t PROGMEM gameq[] = {KC_X, KC_3, COMBO_END};
 const uint16_t PROGMEM gametog1[] = {KC_ESC, KC_LSFT, KC_W, KC_C, COMBO_END};
 const uint16_t PROGMEM tog1[] = {KC_Q, KC_W, KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM thai[] = {LT(4,KC_Z), MO(2), COMBO_END};
+
 
 
 combo_t key_combos[] = {
@@ -59,6 +61,7 @@ combo_t key_combos[] = {
     COMBO(gameq, KC_Q),
     COMBO(gametog1, TG(1)),
     COMBO(tog1, TG(1)),
+    COMBO(thai, A(KC_LSFT)),
 };
 
 
