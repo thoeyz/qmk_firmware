@@ -39,7 +39,7 @@ const uint16_t PROGMEM gameo[] = {KC_ESC, KC_LSFT, COMBO_END};
 const uint16_t PROGMEM gameq[] = {KC_X, KC_3, COMBO_END};
 const uint16_t PROGMEM gametog1[] = {KC_ESC, KC_LSFT, KC_W, KC_C, COMBO_END};
 const uint16_t PROGMEM tog1[] = {KC_Q, KC_W, KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM thai[] = {LT(4,KC_Z), MO(2), COMBO_END};
+const uint16_t PROGMEM thai[] = {KC_Q, MO(2), COMBO_END};
 
 
 
@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 [_NAVIGATION] = LAYOUT(
-	A(KC_LSFT),	TG(1),		KC_4,		KC_5,		KC_6,				            KC_7,		KC_8,		KC_9,		KC_0,		KC_MINS,
+	XXXXXXX,	TG(1),		KC_4,		KC_5,		KC_6,				            KC_7,		KC_8,		KC_9,		KC_0,		KC_MINS,
 	KC_RBRC,	KC_LEFT,	KC_UP,		KC_RGHT,	LCTL_T(KC_HOME),	    	    KC_MS_BTN3,	KC_MS_BTN1,	KC_MS_UP,	KC_MS_BTN2,	KC_QUOT,
 	KC_ENT,		KC_WBAK,	KC_DOWN,	KC_WFWD,	KC_END,				            KC_NO,		KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_RIGHT,KC_MS_BTN1,
 			    KC_1,		KC_ENT,		KC_Y,		KC_LCTL,   CM_TOGG,   KC_NUM,	KC_EQL,		KC_LBRC,	KC_RBRC,	KC_4
