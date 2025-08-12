@@ -27,7 +27,7 @@ const uint16_t PROGMEM pagedn[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM alt[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM alt1[] = {KC_W, KC_R, COMBO_END};
 const uint16_t PROGMEM alt2[] = {KC_X, KC_V, COMBO_END};
-const uint16_t PROGMEM layer5[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM layer5[] = {LT(3,KC_A), MO(2), COMBO_END};
 const uint16_t PROGMEM rctl[] = {KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM f2[] = {KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM ESC[] = {KC_V, KC_B, COMBO_END};
@@ -124,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ONEHANDED] =  LAYOUT(
 	KC_P,	 KC_O,	KC_I,	  KC_U,	  KC_Y,		      	          KC_NO,    KC_F7,	KC_F8,		    KC_F9,	KC_F11,
 	KC_NO,	 KC_L,	KC_K,     KC_J,   KC_H,		      	          KC_NO,    KC_F4,	KC_F5,		    KC_F6,	KC_F12,
-	KC_NO,   KC_NO,	KC_NO,    KC_M,   KC_N,		      	          KC_F10,   KC_F1,	KC_F2,		    KC_F3,	KC_F13,
+	KC_NO,   KC_NO,	KC_P,     KC_M,   KC_N,		      	          KC_F10,   KC_F1,	KC_F2,		    KC_F3,	KC_F13,
 		     TG(4), KC_ENT,   KC_SPC, KC_SPC,  KC_CAPS,  KC_NUM,  KC_ESC,   KC_BSPC,LT(2,KC_ENT),	KC_4
 ),
 
