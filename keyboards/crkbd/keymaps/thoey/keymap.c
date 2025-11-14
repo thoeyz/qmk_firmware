@@ -23,10 +23,10 @@ const uint16_t PROGMEM pagedn[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM alt[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM alt1[] = {KC_W, KC_R, COMBO_END};
 const uint16_t PROGMEM alt2[] = {KC_X, KC_V, COMBO_END};
-const uint16_t PROGMEM layer5L[] = {LT(3,KC_A), MO(2), COMBO_END};
+const uint16_t PROGMEM layer5L[] = {LT(3,KC_A), LT(2,KC_BSPC), COMBO_END};
 const uint16_t PROGMEM layer5R[] = {LT(3,KC_SCLN), KC_SPC, COMBO_END};
 const uint16_t PROGMEM rctl[] = {KC_K, KC_L, COMBO_END};
-const uint16_t PROGMEM f2[] = {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM f2[] = {KC_R, KC_E, COMBO_END};
 const uint16_t PROGMEM ESC[] = {KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM gamei[] = {KC_LALT, KC_G, COMBO_END};
 const uint16_t PROGMEM gamef2[] = {KC_C, KC_R, COMBO_END};
@@ -36,7 +36,9 @@ const uint16_t PROGMEM gameo[] = {KC_ESC, KC_LSFT, COMBO_END};
 const uint16_t PROGMEM gameq[] = {KC_X, KC_3, COMBO_END};
 const uint16_t PROGMEM gametog1[] = {KC_ESC, KC_LSFT, KC_W, KC_C, COMBO_END};
 const uint16_t PROGMEM tog1[] = {KC_Q, KC_W, KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM thai[] = {KC_Q, MO(2), COMBO_END};
+const uint16_t PROGMEM thai[] = {KC_G, LT(2,KC_BSPC), COMBO_END};
+const uint16_t PROGMEM q[] = {KC_S, LT(3,KC_A), COMBO_END};
+const uint16_t PROGMEM p[] = {KC_L, LT(3,KC_SCLN), COMBO_END};
 
 
 
@@ -60,6 +62,10 @@ combo_t key_combos[] = {
     COMBO(gametog1, TG(1)),
     COMBO(tog1, TG(1)),
     COMBO(thai, A(KC_LSFT)),
+    COMBO(q, KC_Q),
+    COMBO(p, KC_P),
+    
+
 };
 
 
@@ -67,6 +73,7 @@ combo_t key_combos[] = {
 enum {
     TD_PLUS_MULT,
     TD_MIN_DIV,
+    TD_0_DOT,
 };
 
 // Tap Dance definitions
@@ -74,16 +81,17 @@ tap_dance_action_t tap_dance_actions[] = {
     
     [TD_PLUS_MULT] = ACTION_TAP_DANCE_DOUBLE(KC_KP_PLUS, KC_PAST),
     [TD_MIN_DIV] = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_PSLS),
+    [TD_0_DOT] = ACTION_TAP_DANCE_DOUBLE(KC_0, KC_DOT),
 };
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(
 
-      XXXXXXX,    KC_Q,        KC_W,    KC_E,    KC_R,         KC_T,                                  KC_Y,    KC_U,   	      KC_I,    KC_O,   KC_P,    	XXXXXXX,
-      XXXXXXX,    LT(3,KC_A),  KC_S,    KC_D,    LSFT_T(KC_F), KC_G,                                  KC_H,    LSFT_T(KC_J),  KC_K,    KC_L,   LT(3,KC_SCLN),   XXXXXXX,
-      XXXXXXX,    LT(4,KC_Z),  KC_X,    KC_C,    KC_V,         KC_B,                         	      KC_N,    KC_M, 	      KC_COMM, KC_DOT, LT(4,KC_SLSH), 	XXXXXXX,
-                                                 KC_BSPC,      LCTL_T(KC_TAB),  MO(2),       KC_SPC,  MO(1), KC_ENT                                   
+      XXXXXXX,    KC_Q,        KC_W,    KC_E,    KC_R,         KC_T,                                          KC_Y,    KC_U,   	      KC_I,    KC_O,   KC_P,    	XXXXXXX,
+      XXXXXXX,    LT(3,KC_A),  KC_S,    KC_D,    LSFT_T(KC_F), KC_G,                                          KC_H,    RSFT_T(KC_J),  KC_K,    KC_L,   LT(3,KC_SCLN),   XXXXXXX,
+      XXXXXXX,    LT(4,KC_Z),  KC_X,    KC_C,    KC_V,         KC_B,                         	      	      KC_N,    KC_M, 	      KC_COMM, KC_DOT, LT(4,KC_SLSH), 	XXXXXXX,
+                                                 KC_BSPC,      LCTL_T(KC_TAB),  LT(2,KC_BSPC),       KC_SPC,  MO(1), KC_ENT                                   
   ),
 
     [1] = LAYOUT_split_3x6_3(
@@ -96,18 +104,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [2] = LAYOUT_split_3x6_3(
  
-      XXXXXXX, KC_EXLM,   KC_AT,    KC_4,    KC_5,    KC_6,                         KC_7,    KC_8,    KC_9,    KC_0, KC_MINS, XXXXXXX,
-      XXXXXXX, KC_RBRC,   KC_LEFT,  KC_UP,   KC_RGHT, KC_HOME,                      KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, XXXXXXX,
+      XXXXXXX, KC_EXLM,   KC_AT,    KC_4,    KC_5,    KC_6,                         KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, XXXXXXX,
+      XXXXXXX, KC_RBRC,   KC_LEFT,  KC_UP,   KC_RGHT, KC_HOME,                      KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_QUOT, XXXXXXX,
       XXXXXXX, KC_ENT,    KC_WBAK,  KC_DOWN, KC_WFWD, KC_END,                       KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, XXXXXXX,
-                                             KC_LGUI, MO(3),  KC_SPC,       KC_ENT, _______, KC_RALT
+                                             KC_LGUI, MO(3),  KC_SPC,       KC_EQL, KC_LBRC, KC_RBRC
   ),
 
     [3] = LAYOUT_split_3x6_3(
   
-      XXXXXXX, QK_BOOT, KC_7,    KC_8,    KC_9,    CW_TOGG,                                XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C(A(KC_DEL)), XXXXXXX,
-      XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    TD(TD_PLUS_MULT),                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,
-      XXXXXXX, QK_BOOT, KC_1,    KC_2,    KC_3,    TD(TD_MIN_DIV),	                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C(A(KC_DEL)), XXXXXXX,
-                                          KC_LGUI, XXXXXXX,          KC_SPC,       KC_ENT, _______, KC_RALT
+      XXXXXXX, QK_BOOT,      KC_7,    KC_8,    KC_9,    TD(TD_MIN_DIV),                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,      XXXXXXX,
+      XXXXXXX, XXXXXXX,      KC_4,    KC_5,    KC_6,    TD(TD_PLUS_MULT),                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,
+      XXXXXXX, C(A(KC_DEL)), KC_1,    KC_2,    KC_3,    TD(TD_0_DOT),	                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C(A(KC_DEL)), XXXXXXX,
+                                          CW_TOGG, C(KC_PGUP),   C(KC_PGDN),            KC_ENT, XXXXXXX, KC_RALT
   ),
 
     [4] = LAYOUT_split_3x6_3(
@@ -121,10 +129,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [5] = LAYOUT_split_3x6_3(
  
-      XXXXXXX, KC_P,  KC_O,  KC_I, KC_U,    KC_Y,                        KC_T,    KC_R, KC_E, KC_W, KC_Q, XXXXXXX,
-      XXXXXXX, KC_NO, KC_L,  KC_K, KC_J,    KC_H,                        KC_G,    KC_F, KC_D, KC_S, KC_A, XXXXXXX,
-      XXXXXXX, KC_NO, KC_NO, KC_P, KC_M,    KC_N,                        KC_B,    KC_V, KC_C, KC_X, KC_Z, XXXXXXX,
-                                   KC_LGUI, KC_BSPC, KC_SPC,     KC_SPC, KC_BSPC, KC_RGUI
+      XXXXXXX, KC_P,    KC_O,  KC_I, KC_U,          KC_Y,                        KC_T,    KC_R, 	      KC_E, KC_W, KC_Q, XXXXXXX,
+      XXXXXXX, KC_MUTE, KC_L,  KC_K, LSFT_T(KC_J),  KC_H,                        KC_G,    RSFT_T(KC_F), KC_D, KC_S, KC_A, XXXXXXX,
+      XXXXXXX, KC_NO,   KC_NO, KC_P, KC_M,          KC_N,                        KC_B,    KC_V, 	      KC_C, KC_X, KC_Z, XXXXXXX,
+                                     CM_TOGG,       KC_BSPC, KC_SPC,     KC_SPC, KC_BSPC, KC_RGUI
                            
   )
 
